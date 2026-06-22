@@ -63,7 +63,7 @@ const TypingArea = () => {
     if (currentIndex >= currentPara.text.length) {
       setIsStarted(false);
       setIsFinished(true);
-      <ResultPopUp wpm={wpm} mistakes={mistake} accuracy={acc} next={()=>changeCurrentPara(selectedTime)}/>
+      
       return;
     }
     if (!isStarted) {
@@ -91,7 +91,7 @@ const TypingArea = () => {
         if (prev <= 1) {
           setIsFinished(true);
           setIsStarted(false);
-          <ResultPopUp isOpen={isFinished} wpm={wpm} mistakes={mistake} accuracy={acc} next={()=>changeCurrentPara(selectedTime)}/>
+          
           return 0;
         }
         return prev - 1;
@@ -102,81 +102,146 @@ const TypingArea = () => {
   }, [timeLeft, isStarted, isFinished]);
 return (
   <>
-    <div
-      onClick={() => inputRef.current?.focus()}
-      className="max-w-3xl mx-auto mt-10 p-6 bg-gray-800 text-gray-200 border border-gray-700 rounded-lg cursor-text shadow-lg"
-    >
-      <div className="text-xl leading-relaxed">
-        {currentPara.text.split("").map((char, index) => {
-          let className = "";
+    <main className="mx-auto flex min-h-screen w-full max-w-6xl items-center px-4 py-8 sm:px-6">
+      <section
+        onClick={() => inputRef.current?.focus()}
+        className="w-full cursor-text overflow-hidden rounded-3xl border border-white/10 bg-slate-950/75 shadow-2xl backdrop-blur-xl"
+      >
+        <div className="flex flex-col gap-5 border-b border-white/10 bg-white/3 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+          <div>
+            <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-cyan-300">
+              Typing Arena
+            </p>
 
-          if (index < typedChara.length) {
-            className =
-              typedChara[index] === char
-                ? "text-green-500"
-                : "text-red-500";
-          }
+            <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              Test your typing speed
+            </h1>
+          </div>
 
-          if (index === currentIndex) {
-            className += " border-l-2 border-yellow-400 animate-pulse";
-          }
-
-          return (
-            <span className={className} key={index}>
-              {char}
-            </span>
-          );
-        })}
-      </div>
-
-      <input
-        ref={inputRef}
-        type="text"
-        value=""
-        onKeyDown={handleKeyDown}
-        className="absolute opacity-0 pointer-events-none"
-        autoFocus
-      />
-
-      <div className="mt-4 flex items-center gap-4">
-        <p>Mistakes: {mistake}</p>
-
-        <button
-          onClick={() => changeCurrentPara(selectedTime)}
-          className="border border-gray-600 bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded cursor-pointer"
-        >
-          Change Text
-        </button>
-
-        <div className="flex justify-evenly gap-2">
-          <button
-            onClick={() => changeTime(30)}
-            className={`px-4 py-2 rounded cursor-pointer ${
-              selectedTime === 30
-                ? "bg-yellow-400 text-black"
-                : "bg-gray-700 border border-gray-600"
+          <div
+            className={`rounded-2xl border px-5 py-3 text-center ${
+              timeLeft <= 10 && isStarted
+                ? "border-red-400/50 bg-red-500/10 text-red-300"
+                : "border-cyan-400/30 bg-cyan-400/10 text-cyan-200"
             }`}
           >
-            30 sec
-          </button>
+            <p className="text-xs font-medium uppercase tracking-wider opacity-70">
+              Time Left
+            </p>
 
-          <button
-            onClick={() => changeTime(60)}
-            className={`px-4 py-2 rounded cursor-pointer ${
-              selectedTime === 60
-                ? "bg-yellow-400 text-black"
-                : "bg-gray-700 border border-gray-600"
-            }`}
-          >
-            60 sec
-          </button>
+            <p className="text-3xl font-bold tabular-nums">{timeLeft}s</p>
+          </div>
         </div>
 
-        <p>Time: {timeLeft}</p>
-        <p>WPM: {wpm}</p>
-        <p>Accuracy: {acc}%</p>
-      </div>
-    </div>
+        <div className="grid grid-cols-3 gap-3 px-5 pt-6 sm:gap-5 sm:px-8">
+          <div className="rounded-2xl border border-white/10 bg-white/4 p-3 text-center sm:p-4">
+            <p className="text-xs font-medium uppercase tracking-wider text-slate-400">
+              WPM
+            </p>
+
+            <p className="mt-1 text-2xl font-bold text-cyan-300 sm:text-3xl">
+              {wpm}
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-white/10 bg-white/4 p-3 text-center sm:p-4">
+            <p className="text-xs font-medium uppercase tracking-wider text-slate-400">
+              Accuracy
+            </p>
+
+            <p className="mt-1 text-2xl font-bold text-emerald-300 sm:text-3xl">
+              {acc}%
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-white/10 bg-white/4 p-3 text-center sm:p-4">
+            <p className="text-xs font-medium uppercase tracking-wider text-slate-400">
+              Errors
+            </p>
+
+            <p className="mt-1 text-2xl font-bold text-rose-300 sm:text-3xl">
+              {mistake}
+            </p>
+          </div>
+        </div>
+
+        <div className="px-5 py-6 sm:px-8 sm:py-8">
+          <div className="rounded-2xl border border-white/10 bg-black/25 p-5 shadow-inner sm:p-7">
+            <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-slate-500">
+              Click here and start typing
+            </p>
+
+            <div className="font-mono text-lg leading-9 tracking-wide text-slate-500 sm:text-xl sm:leading-10">
+              {currentPara.text.split("").map((char, index) => {
+                let className = "transition-colors duration-150";
+
+                if (index < typedChara.length) {
+                  className +=
+                    typedChara[index] === char
+                      ? " text-emerald-400"
+                      : " rounded bg-rose-500/25 text-rose-300";
+                }
+
+                if (index === currentIndex && !isFinished) {
+                  className +=
+                    " border-l-2 border-cyan-300 bg-cyan-300/10 animate-pulse";
+                }
+
+                return (
+                  <span className={className} key={index}>
+                    {char}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
+
+          <input
+            ref={inputRef}
+            type="text"
+            value=""
+            onKeyDown={handleKeyDown}
+            className="absolute h-px w-px opacity-0"
+            autoFocus
+          />
+        </div>
+
+        <div className="flex flex-col gap-4 border-t border-white/10 bg-white/2 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="mr-1 text-sm text-slate-400">Duration:</span>
+
+            <button
+              onClick={() => changeTime(30)}
+              className={`rounded-xl px-4 py-2 text-sm font-semibold transition cursor-pointer ${
+                selectedTime === 30
+                  ? "bg-cyan-400 text-slate-950 shadow-lg shadow-cyan-400/20"
+                  : "border border-white/10 bg-white/5 text-slate-300 hover:border-cyan-300/50 hover:bg-cyan-400/10 hover:text-cyan-200"
+              }`}
+            >
+              30 sec
+            </button>
+
+            <button
+              onClick={() => changeTime(60)}
+              className={`rounded-xl px-4 py-2 text-sm font-semibold transition cursor-pointer ${
+                selectedTime === 60
+                  ? "bg-cyan-400 text-slate-950 shadow-lg shadow-cyan-400/20"
+                  : "border border-white/10 bg-white/5 text-slate-300 hover:border-cyan-300/50 hover:bg-cyan-400/10 hover:text-cyan-200"
+              }`}
+            >
+              60 sec
+            </button>
+          </div>
+
+          <button
+            onClick={() => changeCurrentPara(selectedTime)}
+            className="rounded-xl border border-white/10 bg-white/6 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-cyan-300/50 hover:bg-cyan-400/10 hover:text-cyan-200 cursor-pointer"
+          >
+            New Paragraph
+          </button>
+        </div>
+      </section>
+    </main>
 
     <ResultPopUp
       isOpen={isFinished}

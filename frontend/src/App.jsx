@@ -1,10 +1,8 @@
-import heroImg from "./assets/hero.png";
 import TypingArea from "./components/TypingArea";
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
-      <h1 className="text-3xl font-bold p-6">Hello</h1>
+    <div className="min-h-screen bg-linear-to-br from-slate-950 via-slate-900 to-cyan-950 text-white">
       <TypingArea />
     </div>
   );
