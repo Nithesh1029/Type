@@ -1,18 +1,13 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import TypingArea from './components/TypingArea'
+import heroImg from "./assets/hero.png";
+import TypingArea from "./components/TypingArea";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-    <h1 className=''>hell</h1>
-    <TypingArea/>
-    </>
-  )
+    <div className="min-h-screen bg-gray-900 text-white">
+      <h1 className="text-3xl font-bold p-6">Hello</h1>
+      <TypingArea />
+    </div>
+  );
 }
 
-export default App
+export default App;
