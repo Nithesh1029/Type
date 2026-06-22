@@ -7,7 +7,7 @@ export const calculateCorrectness=(typedChara, correctyped)=>{
 
 
 export const wordsPerMinute=(correctWords, elapsedTime)=>{
-    if(elapsedTime==0)return ;
+    if(elapsedTime==0)return 0;
     const minutes=elapsedTime/60;
     return Math.round((correctWords/5)/minutes)
 }
