@@ -110,26 +110,29 @@ setIsCapsOn(e.getModifierState("CapsLock"));
 
   
 return (
-  <div className="min-h-screen">
-  <h1 className="text-3xl font-bold font-[Helvetica]">TYPE</h1>
-    <main className="mx-auto flex  w-full max-w-6xl items-center bg-black px-4 py-8 text-white sm:px-6">
+  <div className="min-h-screen bg-black">
+    <h1 className=" w-full max-w-5xl px-4 pt-4 text-2xl font-bold font-[Helvetica] text-white sm:px-6">
+      TYPE ARENA
+    </h1>
+
+    <main className="mx-auto flex w-full max-w-5xl items-center bg-black px-4 py-5 text-white sm:px-6">
       <section
         onClick={() => inputRef.current?.focus()}
         className="w-full cursor-text overflow-hidden rounded-2xl border border-white/20 bg-black shadow-2xl shadow-white/5"
       >
-        <div className="flex flex-col gap-5 border-b border-white/20 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+        <div className="flex flex-col gap-4 border-b border-white/20 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <div>
             <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-400">
               Typing Arena
             </p>
 
-            <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+            <h1 className="text-xl font-bold tracking-tight text-white sm:text-2xl">
               Test your typing speed
             </h1>
           </div>
 
           <div
-            className={`rounded-lg border px-5 py-3 text-center ${
+            className={`rounded-lg border px-4 py-2 text-center ${
               timeLeft <= 10 && isStarted
                 ? "border-white bg-white text-black"
                 : "border-white/30 bg-black text-white"
@@ -139,49 +142,49 @@ return (
               Time Left
             </p>
 
-            <p className="text-3xl font-bold tabular-nums">{timeLeft}s</p>
+            <p className="text-2xl font-bold tabular-nums">{timeLeft}s</p>
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-3 px-5 pt-6 sm:gap-5 sm:px-8">
-          <div className="rounded-lg border border-white/20 bg-black p-3 text-center sm:p-4">
+        <div className="grid grid-cols-3 gap-3 px-5 pt-5 sm:gap-4 sm:px-8">
+          <div className="rounded-lg border border-white/20 bg-black p-3 text-center">
             <p className="text-xs font-medium uppercase tracking-wider text-neutral-400">
               WPM
             </p>
 
-            <p className="mt-1 text-2xl font-bold text-white sm:text-3xl">
+            <p className="mt-1 text-xl font-bold text-white sm:text-2xl">
               {wpm}
             </p>
           </div>
 
-          <div className="rounded-lg border border-white/20 bg-black p-3 text-center sm:p-4">
+          <div className="rounded-lg border border-white/20 bg-black p-3 text-center">
             <p className="text-xs font-medium uppercase tracking-wider text-neutral-400">
               Accuracy
             </p>
 
-            <p className="mt-1 text-2xl font-bold text-white sm:text-3xl">
+            <p className="mt-1 text-xl font-bold text-white sm:text-2xl">
               {acc}%
             </p>
           </div>
 
-          <div className="rounded-lg border border-white/20 bg-black p-3 text-center sm:p-4">
+          <div className="rounded-lg border border-white/20 bg-black p-3 text-center">
             <p className="text-xs font-medium uppercase tracking-wider text-neutral-400">
               Errors
             </p>
 
-            <p className="mt-1 text-2xl font-bold text-white sm:text-3xl">
+            <p className="mt-1 text-xl font-bold text-white sm:text-2xl">
               {mistake}
             </p>
           </div>
         </div>
 
-        <div className="px-5 py-6 sm:px-8 sm:py-8">
-          <div className="rounded-lg border border-white/20 bg-black p-5 sm:p-7">
-            <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
+        <div className="px-5 py-5 sm:px-8 sm:py-6">
+          <div className="rounded-lg border border-white/20 bg-black p-4 sm:p-5">
+            <p className="mb-3 text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
               Click here and start typing
             </p>
 
-            <div className="font-mono text-lg leading-9 tracking-wide text-neutral-500 sm:text-xl sm:leading-10">
+            <div className="font-mono text-base leading-8 tracking-wide text-neutral-500 sm:text-lg sm:leading-9">
               {currentPara.text.split("").map((char, index) => {
                 let className = "transition-colors duration-150";
 
@@ -216,7 +219,7 @@ return (
           />
         </div>
 
-        <div className="flex flex-col gap-4 border-t border-white/20 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+        <div className="flex flex-col gap-3 border-t border-white/20 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <div className="flex flex-wrap items-center gap-2">
             <span className="mr-1 text-sm text-neutral-400">Duration:</span>
 
@@ -245,14 +248,15 @@ return (
 
           <button
             onClick={() => changeCurrentPara(selectedTime)}
-            className="cursor-pointer rounded-lg border border-white/30 bg-black px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white hover:text-black"
+            className="cursor-pointer rounded-lg border border-white/30 bg-black px-4 py-2 text-sm font-semibold text-white transition hover:bg-white hover:text-black"
           >
             New Paragraph
           </button>
         </div>
       </section>
     </main>
-      {isCapsOn&&<CapsAlert/>}
+
+    {isCapsOn && <CapsAlert />}
 
     <ResultPopUp
       isOpen={isFinished}
