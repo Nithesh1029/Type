@@ -119,4 +119,124 @@ export const paragraphs=[
     id: 30,
     text: "a simple plan can help turn an idea into action writing down the goal choosing the first step and setting a small deadline can make it easier to begin without feeling overwhelmed",
   },
+    {
+    id: 31,
+    text: "a morning walk can be a peaceful way to begin the day the streets are usually quiet the air feels fresh and the mind has time to prepare for the work ahead",
+  },
+  {
+    id: 32,
+    text: "learning to manage time is important for students and workers making a list of tasks and completing the most important ones first can reduce stress and improve productivity",
+  },
+  {
+    id: 33,
+    text: "the small cafe near the station was full of people in the morning some were drinking tea before work while others sat quietly reading messages on their phones",
+  },
+  {
+    id: 34,
+    text: "confidence grows when people keep trying even after facing difficult situations every small success teaches something useful and makes the next challenge feel easier to handle",
+  },
+  {
+    id: 35,
+    text: "a family meal can bring people together after a busy day sharing food and talking about simple moments can help everyone feel connected and relaxed at home",
+  },
+  {
+    id: 36,
+    text: "the sky changed color as the evening arrived orange light covered the buildings and people slowed down as they returned home after finishing their daily work",
+  },
+  {
+    id: 37,
+    text: "writing notes while studying can make it easier to remember important ideas short and clear notes help students review lessons quickly before tests or assignments",
+  },
+  {
+    id: 38,
+    text: "being patient is useful when things do not go as planned some problems need time to solve and staying calm can help people make better choices during difficult moments",
+  },
+  {
+    id: 39,
+    text: "a bicycle is a simple way to travel short distances it helps people stay active saves fuel and can make a daily journey feel more enjoyable",
+  },
+  {
+    id: 40,
+    text: "the old park had tall trees wide paths and wooden benches children played near the grass while older people sat in the shade and talked quietly",
+  },
+  {
+    id: 41,
+    text: "trying new things can help people discover hidden interests a new hobby sport or subject may seem unfamiliar at first but it can become enjoyable with time",
+  },
+  {
+    id: 42,
+    text: "a healthy meal does not need to be complicated fresh vegetables fruits grains and enough water can give the body energy for work study and exercise",
+  },
+  {
+    id: 43,
+    text: "the train arrived slowly at the platform and passengers waited near the doors some carried bags for work while others were traveling to visit family members",
+  },
+  {
+    id: 44,
+    text: "taking responsibility means completing work on time admitting mistakes and keeping promises people who act responsibly earn trust from friends family and coworkers",
+  },
+  {
+    id: 45,
+    text: "a quiet room can be helpful when someone needs to study or think clearly turning off unnecessary notifications and keeping distractions away can improve concentration",
+  },
+  {
+    id: 46,
+    text: "the shop owner greeted each customer with a smile and helped them find what they needed small acts of friendly service can make people want to return again",
+  },
+  {
+    id: 47,
+    text: "good habits often begin with simple choices drinking enough water keeping things organized and finishing small tasks early can make daily life feel more manageable",
+  },
+  {
+    id: 48,
+    text: "the classroom became active when the teacher asked a question students raised their hands shared ideas and listened as different answers were discussed together",
+  },
+  {
+    id: 49,
+    text: "a long journey becomes easier when it is planned well checking directions packing useful items and leaving on time can prevent many small problems along the way",
+  },
+  {
+    id: 50,
+    text: "helping others can also improve the way people feel offering useful advice sharing knowledge or giving time to someone in need can create a stronger community",
+  },
+  {
+    id: 51,
+    text: "the sound of birds in the morning can make a busy neighborhood feel calm for a few minutes people may stop and notice the simple beauty around them",
+  },
+  {
+    id: 52,
+    text: "practice is important for improving any skill whether someone is learning to type draw cook or play a sport regular effort leads to better results over time",
+  },
+  {
+    id: 53,
+    text: "a useful conversation happens when both people feel heard listening without interrupting and responding with care can help avoid confusion and build stronger relationships",
+  },
+  {
+    id: 54,
+    text: "the bus moved through crowded streets as people looked out of the windows at shops traffic lights and buildings passing by during the evening rush",
+  },
+  {
+    id: 55,
+    text: "setting a goal gives people something clear to work toward it can be related to education health work or personal growth but it should be realistic and meaningful",
+  },
+  {
+    id: 56,
+    text: "clean water is important for health and daily life people use it for drinking cooking cleaning and growing food which is why it should never be wasted",
+  },
+  {
+    id: 57,
+    text: "the small dog waited near the gate every evening and became excited when its owner returned home after a long day of work",
+  },
+  {
+    id: 58,
+    text: "when people stay curious they continue learning throughout life asking questions reading useful information and observing the world can lead to better understanding",
+  },
+  {
+    id: 59,
+    text: "a calm response can prevent a small disagreement from becoming a bigger problem taking time to understand another person can make communication more respectful",
+  },
+  {
+    id: 60,
+    text: "the day ended quietly as lights appeared in windows across the neighborhood people prepared dinner finished their work and rested before another busy morning",
+  },
 ];

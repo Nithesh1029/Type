@@ -64,7 +64,7 @@ return (
         </div>
 
         <button
-          autoFocus
+          
           onClick={next}
           className="mt-6 w-full cursor-pointer rounded-lg bg-white px-4 py-3 font-semibold text-black transition hover:bg-neutral-200 active:scale-[0.98]"
         >
