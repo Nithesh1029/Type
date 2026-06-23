@@ -3,6 +3,7 @@ import { paragraphs } from "../data/paragraphs";
 import { calculateCorrectness, wordsPerMinute } from "../utils/wpm";
 import { Accuracy } from "../utils/accuracy";
 import ResultPopUp from "./ResultPopUp";
+import CapsAlert from "./CapsAlert";
 const TypingArea = () => {
   const getRandomPara = () => {
     return paragraphs[Math.floor(Math.random() * paragraphs.length)];
@@ -16,6 +17,7 @@ const TypingArea = () => {
   const [isStarted, setIsStarted] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
   const [selectedTime, setSelectedTime] = useState(30);
+  const [isCapsOn, setIsCapsOn]=useState(false);
 
   const correctCal = calculateCorrectness(typedChara, currentPara.text);
   const eTime = selectedTime - timeLeft;
@@ -52,6 +54,7 @@ const TypingArea = () => {
     if (isFinished) {
       return;
     }
+setIsCapsOn(e.getModifierState("CapsLock"));
     if (e.key === "Backspace") {
       setTypedChara((prev) => prev.slice(0, -1));
       setCurrentIndex((prev) => Math.max(prev - 1, 0));
@@ -249,6 +252,7 @@ return (
         </div>
       </section>
     </main>
+      {isCapsOn&&<CapsAlert/>}
 
     <ResultPopUp
       isOpen={isFinished}
