@@ -59,6 +59,12 @@ Open the local URL shown in the terminal. It is usually:
 http://localhost:5173
 ```
 
+Check the hosted URL:
+
+```
+https://type-6v5s.onrender.com/
+```
+
 ## How to Use
 
 1. Open the application.
